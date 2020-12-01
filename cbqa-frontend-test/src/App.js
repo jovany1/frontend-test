@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import TodoList from './components/TodoList';
+import { ListWrapper } from './components/styles/ListToDo';
+import Wrapper from './components/styles/Wrapper';
 
 
 const App = () => {
@@ -53,9 +55,9 @@ const App = () => {
 
       {isLoading && <img src={logo} className="App-logo" alt="logo" />}
 
-      <main>
+      <Wrapper>
         {Object.keys(todoList).map((key) => (
-          <div className="user-list" key={`user-${key}`}>
+          <ListWrapper key={`user-${key}`}>
             <h5>User ID: {key}</h5>
 
             <TodoList
@@ -63,9 +65,9 @@ const App = () => {
               handleChangeComplete={(taskId, newValue) => handleChangeComplete(key, taskId, newValue)}
             />
 
-          </div>
+          </ListWrapper>
         ))}
-      </main>
+      </Wrapper>
 
     </div>
   );

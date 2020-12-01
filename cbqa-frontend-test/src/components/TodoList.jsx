@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import TodoItem from './TodoItem';
+import Button from '../components/styles/Button';
 
 const TodoList = ({ list, handleChangeComplete }) => {
   const [showCompleted, setShowCompleted] = useState(false);
@@ -19,15 +20,12 @@ const TodoList = ({ list, handleChangeComplete }) => {
       </ul>
 
       {completeItems.length > 0 && (
-        <button
-          className="button-show-completed"
-          onClick={() => setShowCompleted(!showCompleted)}
-        >
+        <Button onClick={() => setShowCompleted(!showCompleted)}>
           {showCompleted
-            ? 'Ocultar completados'
-            : `${completeItems.length} Completados`
+            ? 'Hide Completed'
+            : `${completeItems.length} Completed`
           }
-        </button>
+        </Button>
       )}
     </>
   );

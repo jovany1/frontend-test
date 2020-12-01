@@ -1,21 +1,21 @@
 import React from 'react';
-
+import { ToDoItem, CustomCheckbox, CheckboxMark } from './styles/ListToDo';
 const TodoItem = ({ item, handleChangeComplete }) => {
 
   return (
-    <li
-      className={`todoItem ${item.completed ? 'completed' : ''}`}
+    <ToDoItem
+      isCompleted={item.completed}
       onClick={() => handleChangeComplete(item.id, !item.completed)}
     >
       {item.title}
-      <input
+      <CustomCheckbox
         className="checkboxInput"
         type="checkbox"
         checked={item.completed}
         readOnly
       />
-      <span className="checkboxMark"></span>
-    </li>
+      <CheckboxMark />
+    </ToDoItem>
   );
 }
 
